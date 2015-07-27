@@ -16,7 +16,7 @@ public class _07_stack_revword {
         String word=br.readLine();
         int word_size=word.length();
 
-        char ch[];
+      //  char ch[];
 
 
         //_06_stack stack=new _06_stack(word_size);
@@ -28,15 +28,13 @@ Stack st = new Stack();
           st.push(word.charAt(i));
         }
 
-        //print reverse
-
-       // word=; resolve this
 
         word=st.toString();
         for(int i=0;i<word_size;i++)
         {
-            System.out.println(word.charAt(i)); // not right output
-            //System.out.print(st.pop());
+         //   word[i]=st.pop();
+           // System.out.println(word.charAt(i)); // not right output
+            System.out.print(st.pop());
         }
     }
 
