@@ -32,8 +32,7 @@ Stack st = new Stack();
         word=st.toString();
         for(int i=0;i<word_size;i++)
         {
-         //   word[i]=st.pop();
-           // System.out.println(word.charAt(i)); // not right output
+
             System.out.print(st.pop());
         }
     }

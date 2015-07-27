@@ -20,13 +20,42 @@ public class _08_stack_delimiter {
 
         Stack st=new Stack();
 
-        //pushed string into Stack
-        for(int i=0;i<word_size;i++) {
-            System.out.println(word.charAt(i));
-            st.push(word.charAt(i));
-        }
 
-        //Check for Correct or Wrong
+        for(int i=0;i<word_size;i++) {
+            char ch=word.charAt(i);
+            switch(ch)
+            {
+                case '{':
+                case '(':
+                case '[':
+                    st.push(ch);
+                    break;
+                case '}':
+                case ')':
+                case ']':
+                    if(!st.isEmpty())
+                    {
+                        char ch1= st.pop().toString().charAt(0); // convert obj --> Char
+                        if((ch=='}'&&ch1!='{') ||(ch==']'&&ch1!='[')||(ch==')'&&ch1!='(')) //put all or in one ()
+                          //  System.out.println(ch1);
+                            System.out.println("Error Found");
+                    }
+                    else
+                    {
+                        //System.out.println("Error Found");
+                    }
+                    break;
+                default:
+                    break;// do nothing for other characters
+            }// end of switch
+        } // end of for
+
+
+        //now all char processed from the word so if something in stack it is error
+        if(!st.isEmpty())
+        {
+                System.out.println("Right parentheses mismatch error ");
+        }
 
 
 
