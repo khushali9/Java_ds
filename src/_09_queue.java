@@ -5,6 +5,7 @@ public class _09_queue {
     //Operations to implement insert,remove,peek,isempty , is full
     //first in first out
     //use keywords rear,front,maxSize,nItems
+    //remember to insert as rear and remove from front
     public static void main(String[] args)
     {
         queue que=new queue(5);
@@ -33,8 +34,7 @@ class queue{
     public void insert(int val)
     {
         if(rear<maxSize-1) {
-            rear++;
-            Arr[rear] = val;
+            Arr[rear++] = val;
             nItems++;
         }
         else
@@ -54,11 +54,14 @@ class queue{
     }
 
     public boolean isEmpty() // true if queue is empty {
-    {return (nItems==0);
+    {
+        //rear+1==front or front+maxsize-1==rear
+        return (nItems==0);
     }
 
     public boolean isFull() // true if queue is full {
     {
+        //rear+2==front or front+maxSize-2==rear
     return (nItems==maxSize);
     }
 }
