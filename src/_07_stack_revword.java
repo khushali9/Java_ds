@@ -19,9 +19,11 @@ public class _07_stack_revword {
       //  char ch[];
 
 
-        //_06_stack stack=new _06_stack(word_size);
+
 
 Stack st = new Stack();
+
+
 
         for(int i=0;i<word_size;i++) {
             System.out.println(word.charAt(i));
@@ -29,11 +31,12 @@ Stack st = new Stack();
         }
 
 
-        word=st.toString();
+
         for(int i=0;i<word_size;i++)
         {
 
             System.out.print(st.pop());
+            // other logic while stack not empty do pop and store it into String with +=
         }
     }
 

@@ -11,7 +11,7 @@ import java.util.*;
 public class _08_stack_delimiter {
     public static void main(String args[]) throws IOException {
 
-        System.out.println("Enter the word you want to reverse");
+        System.out.println("Enter String you want to find error");
 
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
