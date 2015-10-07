@@ -36,7 +36,7 @@ reference of an object to the constructor of the Inner class.
 
  */
 
-public class _15_LinkList_My {
+public class _11_LinkList_My {
 
 
     private static class Node
@@ -56,7 +56,7 @@ public class _15_LinkList_My {
 
 
     private Node head;
-    public _15_LinkList_My(){
+    public _11_LinkList_My(){
         head=null;
     }
 
@@ -198,8 +198,8 @@ public class _15_LinkList_My {
 
     //Copy O(n^2)
 
-    public _15_LinkList_My copy1(){
-        _15_LinkList_My copy=new _15_LinkList_My();
+    public _11_LinkList_My copy1(){
+        _11_LinkList_My copy=new _11_LinkList_My();
         Node tmp=head;
         while(tmp!=null){
             copy.addLast(tmp.data);
@@ -208,8 +208,8 @@ public class _15_LinkList_My {
         return copy;
     }
 
-    public _15_LinkList_My reverse(){
-        _15_LinkList_My list= new _15_LinkList_My();
+    public _11_LinkList_My reverse(){
+        _11_LinkList_My list= new _11_LinkList_My();
         Node tmp=head;
 
         while(tmp!=null){
@@ -220,8 +220,8 @@ public class _15_LinkList_My {
     }
 
     //copy O(n)
-    public _15_LinkList_My copy2(){
-        _15_LinkList_My copy2=new _15_LinkList_My();
+    public _11_LinkList_My copy2(){
+        _11_LinkList_My copy2=new _11_LinkList_My();
         Node tmp=head;
         while(tmp!=null){
             copy2.insertFirst(tmp.data);
@@ -231,8 +231,8 @@ public class _15_LinkList_My {
     }
 
     //copy O(n) but tail
-    public _15_LinkList_My copy3(){
-        _15_LinkList_My copy3=new _15_LinkList_My();
+    public _11_LinkList_My copy3(){
+        _11_LinkList_My copy3=new _11_LinkList_My();
         Node tmp=head;
         if(head==null) return null;
         copy3.head = new Node(head.data, null);

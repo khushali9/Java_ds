@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Created by khushali on 4/7/15.
  */
@@ -16,14 +14,14 @@ import java.util.Scanner;
         //Linkedlist
         //Pros: The linked list implementation of stack can grow and shrink according to the needs at runtime.
         //Cons: Requires extra memory due to involvement of pointers.
-public class _06_stack {
+public class _06_stack_Array {
 
  private int top;
 
    private int maxsize;
     private char[] mystack; // make all of this private and array main define in constuctor
 
-    public _06_stack(int size) //constructor
+    public _06_stack_Array(int size) //constructor
     {
         this.maxsize=size;
         mystack=new char[maxsize];
@@ -92,7 +90,7 @@ public class _06_stack {
 
     public static void main(String args[])
     {
-        _06_stack stack1 = new _06_stack(3);
+        _06_stack_Array stack1 = new _06_stack_Array(3);
 
         stack1.push('i');
         stack1.Display();
