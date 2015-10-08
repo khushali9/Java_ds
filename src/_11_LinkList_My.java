@@ -247,6 +247,8 @@ public class _11_LinkList_My {
         return copy3;
     }
 
+// have not implemented Iterator.
+  //  https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/code/LinkedList.java
 
 
 }
