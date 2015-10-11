@@ -1,4 +1,6 @@
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 /**
  * Created by khushali on 10/4/15.
@@ -39,75 +41,71 @@ reference of an object to the constructor of the Inner class.
 public class _11_LinkList_My {
 
 
-    private static class Node
-    {
+    private static class Node {
         int data;
         Node next;
 
-        public Node(int data, Node next)
-        {
-            this.data=data;
-            this.next=next;
+        public Node(int data, Node next) {
+            this.data = data;
+            this.next = next;
         }
 
 
+    }
 
-    };
+    ;
 
 
     private Node head;
-    public _11_LinkList_My(){
-        head=null;
+
+    public _11_LinkList_My() {
+        head = null;
     }
 
-    public boolean isEmpty(){
-        return (head==null);
+    public boolean isEmpty() {
+        return (head == null);
     }
 
-    public void insertFirst(int data){
+    public void insertFirst(int data) {
 
         // it is taken that is is already null
-        head = new Node(data,head);
+        head = new Node(data, null);
     }
 
-    public int getFirst(){
-        if (head==null) throw new NoSuchElementException();
+    public int getFirst() {
+        if (head == null) throw new NoSuchElementException();
         return head.data;
     }
 
-    public int removeFirst(){
-        int tmp=head.data;
-        head=head.next;
+    public int removeFirst() {
+        int tmp = head.data;
+        head = head.next;
         return tmp;
     }
 
     //Insert Last
-    public void addLast(int data){
-        if(head==null){
-            head.data=data;
-            head.next=null;
-        }
-        else
-        {
-            Node tmp=head;
-            while(tmp.next!=null)
-            {
-                tmp=tmp.next;
+    public void addLast(int data) {
+        if (head == null) {
+            //head.data = data;
+            //head.next = null;
+            insertFirst(data);
+        } else {
+            Node tmp = head;
+            while (tmp.next != null) {
+                tmp = tmp.next;
             }
-            tmp.next=new Node(data,null);
+            tmp.next = new Node(data, null);
 
         }
     }
 
     //Get Last
-    public int getLast(){
-        if(head==null) throw new NoSuchElementException();
-        else
-        {
-            Node tmp=head;
-            while(tmp.next!=null)
-            {
-                tmp=tmp.next;
+    public int getLast() {
+        if (head == null) throw new NoSuchElementException();
+        else {
+            Node tmp = head;
+            while (tmp.next != null) {
+                tmp = tmp.next;
             }
             return tmp.data;
 
@@ -116,19 +114,17 @@ public class _11_LinkList_My {
     }
 
     //remove al node from the server
-    public void clear(){
-        head=null;
+    public void clear() {
+        head = null;
     }
 
     //check if our link list has particular value
-    public boolean contains(int data){
-        Node tmp=head;
-        while(tmp.next!=null){
-            if(tmp.data==data){
+    public boolean contains(int data) {
+        Node tmp = head;
+        while (tmp.next != null) {
+            if (tmp.data == data) {
                 return true;
-            }
-            else
-            {
+            } else {
                 continue;
             }
 
@@ -137,108 +133,105 @@ public class _11_LinkList_My {
     }
 
     //insert after value
-    public void insertAfterValue(int data, int data1){
-        Node tmp=head;
-        while(tmp!=null && !(tmp.data==data)){
-            tmp=tmp.next;
+    public void insertAfterValue(int data, int data1) {
+        Node tmp = head;
+        while (tmp != null && !(tmp.data == data)) {
+            tmp = tmp.next;
         }
-        if(tmp!=null){
-            tmp.next=new Node(data1,tmp.next);
+        if (tmp != null) {
+            tmp.next = new Node(data1, tmp.next);
 
         }
     }
 
     //insert before value
-    public void insertBeforeValue(int data,int data1){
-        if(head==null) return;
+    public void insertBeforeValue(int data, int data1) {
+        if (head == null) return;
 
-        if(head.data==data){
+        if (head.data == data) {
             insertFirst(data1);
         }
 
-        Node prev=null;
-        Node cur=head;
+        Node prev = null;
+        Node cur = head;
 
-        while(cur!=null && !(cur.data==data)){
-            prev=cur;
-            cur=cur.next;
+        while (cur != null && !(cur.data == data)) {
+            prev = cur;
+            cur = cur.next;
         }
 
         //insert between cur and pre
-        if(cur!=null) prev.next=new Node(data1,cur);
-
+        if (cur != null) prev.next = new Node(data1, cur);
 
 
     }
 
     // remove the perticular data
 
-    public void remove(int data){
-        if (head==null) throw new RuntimeException("Cannnot Delete");
+    public void remove(int data) {
+        if (head == null) throw new RuntimeException("Cannnot Delete");
 
-        if(head.data==data){
-            head=head.next;
+        if (head.data == data) {
+            head = head.next;
             return;
         }
 
-        Node cur=head;
-        Node prev=null;
+        Node cur = head;
+        Node prev = null;
 
-        while(cur!=null && !(cur.data==data)){
-            prev=cur;
-            cur=cur.next;
+        while (cur != null && !(cur.data == data)) {
+            prev = cur;
+            cur = cur.next;
         }
-        if(cur!=null) throw new RuntimeException("cannot delete");
+        if (cur != null) throw new RuntimeException("cannot delete");
 
-        prev.next=cur.next;
-
+        prev.next = cur.next;
 
 
     }
 
     //Copy O(n^2)
 
-    public _11_LinkList_My copy1(){
-        _11_LinkList_My copy=new _11_LinkList_My();
-        Node tmp=head;
-        while(tmp!=null){
+    public _11_LinkList_My copy1() {
+        _11_LinkList_My copy = new _11_LinkList_My();
+        Node tmp = head;
+        while (tmp != null) {
             copy.addLast(tmp.data);
-            tmp=tmp.next;
+            tmp = tmp.next;
         }
         return copy;
     }
 
-    public _11_LinkList_My reverse(){
-        _11_LinkList_My list= new _11_LinkList_My();
-        Node tmp=head;
+    public _11_LinkList_My reverse() {
+        _11_LinkList_My list = new _11_LinkList_My();
+        Node tmp = head;
 
-        while(tmp!=null){
+        while (tmp != null) {
             list.insertFirst(tmp.data);
-            tmp=tmp.next;
+            tmp = tmp.next;
         }
         return list;
     }
 
     //copy O(n)
-    public _11_LinkList_My copy2(){
-        _11_LinkList_My copy2=new _11_LinkList_My();
-        Node tmp=head;
-        while(tmp!=null){
+    public _11_LinkList_My copy2() {
+        _11_LinkList_My copy2 = new _11_LinkList_My();
+        Node tmp = head;
+        while (tmp != null) {
             copy2.insertFirst(tmp.data);
-            tmp=tmp.next;
+            tmp = tmp.next;
         }
         return copy2.reverse();
     }
 
     //copy O(n) but tail
-    public _11_LinkList_My copy3(){
-        _11_LinkList_My copy3=new _11_LinkList_My();
-        Node tmp=head;
-        if(head==null) return null;
+    public _11_LinkList_My copy3() {
+        _11_LinkList_My copy3 = new _11_LinkList_My();
+        Node tmp = head;
+        if (head == null) return null;
         copy3.head = new Node(head.data, null);
         Node tmpTwin = copy3.head;
-        while(tmp.next != null)
-        {
+        while (tmp.next != null) {
             tmp = tmp.next;
             tmpTwin.next = new Node(tmp.data, null);
             tmpTwin = tmpTwin.next;
@@ -248,7 +241,11 @@ public class _11_LinkList_My {
     }
 
 // have not implemented Iterator.
-  //  https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/code/LinkedList.java
+    //  https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/code/LinkedList.java
+
+
+    //Hackerank Ques
+
 
 
 }
