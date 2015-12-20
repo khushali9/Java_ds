@@ -244,7 +244,7 @@ public class _11_LinkList_My {
     //  https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/code/LinkedList.java
 
 
-    //Hackerank Ques
+
 
 
 
