@@ -40,7 +40,7 @@ public class _13_String {
 
     public static int prefix(String s, String comp){
       int N=Math.min(s.length(),comp.length());
-            for(int i=0;i<=N-1;i++){
+            for(int i=0;i<N;i++){
                 if(s.charAt(i)!=comp.charAt(i))
                 {
                 return i;
@@ -85,6 +85,7 @@ public class _13_String {
 
     /*Write a method to replace all spaces in a string with ‘%20’*/
 
+
     public static String replaceSpa(String str){
         StringBuffer strBuffer = new StringBuffer();
         for (int i = 0; i < str.length(); i++) {
@@ -124,6 +125,8 @@ public class _13_String {
 
         //sort
         sortstr(s);
+
+
 
     }
 
