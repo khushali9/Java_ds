@@ -261,14 +261,72 @@ public class _11_LinkList_My {
 
     //No extra buffer
     public static void deleteDup2(Node n){
+        Node cur=n;
+
+        while(cur!=null){
+            Node run=cur; //this is imp to be here
+            while(run!=null)
+            {
+                if(cur.data==run.next.data){
+                    run.next=run.next.next;
+                }
+                else
+                    run=run.next;
+            }
+            cur=cur.next;
+        }
 
     }
 
 // have not implemented Iterator.
     //  https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/code/LinkedList.java
 
+    //NthtoLast
+    public Node nThToLast(Node n,int dis){
+        if(n==null||dis<1)
+        {
+            return null;
+        }
+        Node p1=n;
+        Node p2=n;
+
+        for(int j=0;j<n-1;++j){
+            if (p2==null)
+            {
+                return null;
+            }
+            p2=p2.next;
+        }
+
+        while(p2.next !=null)
+        {
+            p1=p1.next;
+            p2=p2.next;
+        }
+
+        return p1;
+
+    }
+
+    //delete at given Node
 
 
+    public static boolean deleteGivenNode(Node delN){
+        if(delN == null || delN.next==null)
+        {
+            return false;
+        }
+
+        Node next1=delN.next;
+        delN.data=next1.data;
+        delN.next=next1.next;
+        return true;
+
+    }
+
+
+
+    //CTCI 4th & 5th to COde
 
 
 
