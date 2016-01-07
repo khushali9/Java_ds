@@ -30,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_11_LinkList_My.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_11_LinkList_My.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_11_LinkList_My.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7466216" vertical-offset="4388" max-vertical-offset="4995">
-              <caret line="328" column="28" selection-start-line="328" selection-start-column="28" selection-end-line="328" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4088" max-vertical-offset="5475">
+              <caret line="297" column="23" selection-start-line="297" selection-start-column="23" selection-end-line="297" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,7 +45,7 @@
       <file leaf-file-name="_06_stack_Array.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_06_stack_Array.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1043" max-vertical-offset="1635">
+            <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="1635">
               <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding />
             </state>
@@ -62,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_10_Stack_List.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_10_Stack_List.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/_10_Stack_List.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-              <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.4814189" vertical-offset="0" max-vertical-offset="975">
+              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -114,7 +114,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="489" />
+    <option name="x" value="334" />
     <option name="y" value="22" />
     <option name="width" value="1260" />
     <option name="height" value="712" />
@@ -608,7 +608,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="489" y="22" width="1260" height="712" extended-state="0" />
+    <frame x="334" y="22" width="1260" height="712" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1041,11 +1041,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_10_Stack_List.java">
+    <entry file="file://$PROJECT_DIR$/src/_11_LinkList_My.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4088" max-vertical-offset="5475">
+          <caret line="297" column="23" selection-start-line="297" selection-start-column="23" selection-end-line="297" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1057,13 +1059,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_11_LinkList_My.java">
+    <entry file="file://$PROJECT_DIR$/src/_10_Stack_List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7466216" vertical-offset="4388" max-vertical-offset="4995">
-          <caret line="328" column="28" selection-start-line="328" selection-start-column="28" selection-end-line="328" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.4814189" vertical-offset="0" max-vertical-offset="975">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

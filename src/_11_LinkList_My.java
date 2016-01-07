@@ -290,7 +290,7 @@ public class _11_LinkList_My {
         Node p1=n;
         Node p2=n;
 
-        for(int j=0;j<n-1;++j){
+        for(int j=0;j<dis-1;++j){
             if (p2==null)
             {
                 return null;
@@ -328,6 +328,38 @@ public class _11_LinkList_My {
 
     //CTCI 4th & 5th to COde
 
+    //merge LinkList
 
+    //http://stackoverflow.com/questions/10707352/interview-merging-two-sorted-singly-linked-list
+
+
+
+    /* write this in Java
+    struct node* SortedMerge(struct node* a, struct node* b)
+    {
+     struct node* result = NULL;
+
+      // Base cases
+        if (a == NULL)
+                return(b);
+        else if (b==NULL)
+                return(a);
+
+       //Pick either a or b, and recur
+        if (a->data <= b->data)
+        {
+            result = a;
+            result->next = SortedMerge(a->next, b);
+        }
+        else
+        {
+            result = b;
+            result->next = SortedMerge(a, b->next);
+        }
+        return(result);
+        }
+         */
+
+    //Little walk through on doubly linkList
 
 }
