@@ -1,3 +1,4 @@
+import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -41,7 +42,7 @@ reference of an object to the constructor of the Inner class.
 public class _11_LinkList_My {
 
 
-    private static class Node {
+    private class Node {
         int data;
         Node next;
 
@@ -238,6 +239,29 @@ public class _11_LinkList_My {
         }
 
         return copy3;
+    }
+
+    //Duplicate & buffer
+    public static void deleteDup(Node n){
+        Hashtable table=new Hashtable();
+        Node prev=null;
+        while(n!=null){
+            if(table.containsKey(n.data))
+                prev.next=n.next;
+            else
+            {
+                table.put(n.data,true);
+                prev=n;
+            }
+            n=n.next;
+
+
+        }
+    }
+
+    //No extra buffer
+    public static void deleteDup2(Node n){
+
     }
 
 // have not implemented Iterator.
