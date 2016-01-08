@@ -28,7 +28,7 @@ Stack st = new Stack();
 
 
         for(int i=0;i<word_size;i++) {
-            System.out.println(word.charAt(i));
+            //System.out.println(word.charAt(i));
           st.push(word.charAt(i));
         }
 
