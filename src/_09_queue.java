@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * Created by khushali on 4/7/15.
  */
@@ -76,6 +78,28 @@ public class _09_queue {
             super();
         }
     }
+
+}
+
+//queue out of Stack
+class queueOfStack{
+Stack s1,s2;
+    public queueOfStack(){
+        s1=new Stack();
+        s2=new Stack();
+    }
+
+    public void enqueue(int val){
+        s1.push(val);
+    }
+    public int pop(){
+        if(!s2.isEmpty()) return Integer.parseInt(s2.pop().toString());
+        while(!s1.isEmpty()) s2.push(s1.pop());
+        return Integer.parseInt(s2.pop().toString());
+
+    }
+
+
 
 }
 
