@@ -28,20 +28,44 @@ public class _09_queue {
         Q=new int[cap];
         rear=-1;
         front=0;
+        cur=0; //number of Items in the Queue array
     }
+
     public boolean isEmpty()
     {
+        //return ( rear+1==front || (front+maxSize-1==rear) );
         return cur == 0;
     }
 
+
     public boolean isFull()
     {
+        //return ( rear+2==front || (front+maxSize-2==rear) );
         return cur == cap;
     }
 
     //Puts a value into the back of the queue.
     //instead of Exception you can write code to double
     // the size by taking new aaray n copying this one in it
+
+    public void insert(int i){
+        if(rear==cap-1) rear=-1;
+        Q[++rear]=i;
+        cur++;
+    }
+
+    public int remove(){
+        int tmp=Q[front++];
+        if(front==cap) front=0;
+        cur--;
+        return tmp;
+    }
+
+    public int peekFront(){
+        return Q[front];
+    }
+
+
 
     public void enqueue (int value)
     {
@@ -102,4 +126,5 @@ Stack s1,s2;
 
 
 }
+
 

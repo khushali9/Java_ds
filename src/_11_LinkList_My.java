@@ -363,3 +363,38 @@ public class _11_LinkList_My {
     //Little walk through on doubly linkList
 
 }
+
+//DoublyLinkList
+class doublyLinkList{
+
+
+    class Node{
+        public int data;
+        Node next;
+        Node prev;
+
+        public Node(int data){
+            this.data=data;
+        }
+
+
+    }
+
+    private Node first,last;
+    public doublyLinkList(){
+    first=null;
+        last=null;
+
+    }
+
+    public boolean isEmpty(){
+        return first==null;
+    }
+
+    //insertFirst
+
+    //insertLast
+    //DeleteFirst
+    //deleteLast
+
+}
