@@ -124,7 +124,7 @@ public class BST_My {
     //code ot find the succesor
     public Node Successesor(Node N) {
         if(N==null) return null;
-        if(N.right==null) return N;
+        if(N.right==null) ;//This is wrong if it Null then look into the book we will need Paren
         else
         {
             N=N.right;
@@ -145,6 +145,7 @@ public class BST_My {
             return 0;
         else
             return 1+Math.max(MaxDepth(N.left),MaxDepth(N.right));
+        //Time Complexity: O(n)
     }
 
     public int MinDepth(Node N){
@@ -220,5 +221,122 @@ public class BST_My {
     }
 
 
-    //
+    //print element K distnace from root
+    void printKDistant(Node node, int k) {
+        if (node == null) {
+            return;
+        }
+        if (k == 0) {
+            System.out.print(node.data + " ");
+            return;
+        } else {
+            printKDistant(node.left, k - 1);
+            printKDistant(node.right, k - 1);
+        }
+        //Time Complexity: O(n) where n is number of nodes in the given binary tree.
+
+
+    }
+
+    //Print Anc
+    boolean printAncestors(Node node, int target) {
+
+         /* base cases */
+        if (node == null) {
+            return false;
+        }
+
+        if (node.data == target) {
+            return true;
+        }
+
+        /* If target is present in either left or right subtree of this node,
+         then print this node */
+        if (printAncestors(node.left, target)
+                || printAncestors(node.right, target)) {
+            System.out.print(node.data + " ");
+            return true;
+        }
+
+        /* Else return false */
+        return false;
+    }
+
+    //Binary Tree is subtree of binary Tree
+    boolean areIdentical(Node node1, Node node2) {
+
+        /* base cases */
+        if (node1 == null && node2 == null) {
+            return true;
+        }
+
+        if (node1 == null || node2 == null) {
+            return false;
+        }
+
+        /* Check if the data of both roots is same and data of left and right
+         subtrees are also same */
+        return (node1.data == node2.data
+                && areIdentical(node1.left, node2.left)
+                && areIdentical(node1.right, node2.right));
+    }
+
+    /* This function returns true if S is a subtree of T, otherwise false */
+    boolean isSubtree(Node T, Node S) {
+
+        /* base cases */
+        if (S == null) {
+            return true;
+        }
+
+        if (T == null) {
+            return false;
+        }
+
+        /* Check the tree with root as current node */
+        if (areIdentical(T, S)) {
+            return true;
+        }
+
+        /* If the tree with root as current node doesn't match then
+         try left and right subtrees one by one */
+        return isSubtree(T.left, S)
+                || isSubtree(T.right, S);
+    }
+
+    //Create ll of each level
+
+    public ArrayList<LinkedList<Node>> findlevelLinkList(Node N){
+        ArrayList<LinkedList<Node>> result =new ArrayList<LinkedList<Node>>();
+        LinkedList<Node> list=new LinkedList<Node>();
+        int level =0;
+        list.add(N);
+        result.add(level,list);
+
+        while(true){
+            list=new LinkedList<Node>();
+            for(int i=0;i<result.get(level).size();i++){
+                Node n=result.get(level).get(i);
+                if(n!=null){
+                    if(n.left!=null)list.add(n.left);
+                    if(n.right!=null)list.add(n.right);
+
+                }
+            }
+            if(list.size()>0){
+                result.add(level+1,list);
+            }else{
+                break;
+            }
+            level++;
+
+        }
+
+
+        return result;
+    }
+
+    ///
+
+
 }
