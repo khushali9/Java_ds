@@ -77,8 +77,8 @@ public class BST_My {
     }
     public Node delete(Node N,int toDelete){
         if (N==null) throw new RuntimeException("cannot delete");
-        else if(toDelete<N.data) N.left=delete(N.left,toDelete);
-        else if(toDelete>N.data) N.right=delete(N.right,toDelete);
+        else if(N.data<toDelete) N.right=delete(N.right,toDelete);
+        else if(N.data>toDelete) N.left=delete(N.left,toDelete);
         else
         {
             if (N.left == null) return N.right;
@@ -106,32 +106,119 @@ public class BST_My {
     }
 
     //Trvarsal
-    public void preOrderTraversal()
-    {
-        preOrderHelper(root);
+
+
+    //Inorder -> call this method as root as an argument
+    private void inOrder(Node N){
+        if(N!=null){
+            inOrder(N.left);
+            System.out.print(N.data);
+            inOrder(N.right);
+        }
+
     }
-    private void preOrderHelper(Node r)
-    {
-        if (r != null)
+
+    //preorde same as above -> node, left, right
+    //post order -> left,right,node
+
+    //code ot find the succesor
+    public Node Successesor(Node N) {
+        if(N==null) return null;
+        if(N.right==null) return N;
+        else
         {
-            System.out.print(r+" ");
-            preOrderHelper(r.left);
-            preOrderHelper(r.right);
+            N=N.right;
+            while(N.left!=null)
+            {
+                N=N.left;
+            }
+
+            return N;
+        }
+
+
+    }
+
+    //Check If Tree is balanced or Not
+    public int MaxDepth(Node N){
+        if(N==null)
+            return 0;
+        else
+            return 1+Math.max(MaxDepth(N.left),MaxDepth(N.right));
+    }
+
+    public int MinDepth(Node N){
+        if(N==null)
+            return 0;
+        else
+            return 1+Math.min(MinDepth(N.left), MinDepth(N.right));
+    }
+
+    public boolean isBalanced(Node N){
+        return (MaxDepth(N)-MinDepth(N)<=1);
+    }
+
+    //Asc Array to Tree
+    public Node addToTree(int a[],int start,int end)
+    {
+        if(start<end){
+            return null;
+        }
+        else
+        {
+            int mid=(start+end)/2;
+            Node n=new Node(a[mid],addToTree(a,start,mid-1),addToTree(a,mid+1,end));
+            return n;
         }
     }
 
-    public void inOrderTraversal()
-    {
-        inOrderHelper(root);
+    public Node createMinBST(int a[]){
+        return addToTree(a,0,a.length-1);
     }
-    private void inOrderHelper(Node r)
+
+    /* function to print level order traversal of tree*/
+    void printLevelOrder()
     {
-        if (r != null)
+        int h = height(root);
+        int i;
+        for (i=1; i<=h; i++)
+            printGivenLevel(root, i);
+    }
+
+    /* Compute the "height" of a tree -- the number of
+    nodes along the longest path from the root node
+    down to the farthest leaf node.*/
+    int height(Node root)
+    {
+        if (root == null)
+            return 0;
+        else
         {
-            inOrderHelper(r.left);
-            System.out.print(r+" ");
-            inOrderHelper(r.right);
+            /* compute  height of each subtree */
+            int lheight = height(root.left);
+            int rheight = height(root.right);
+
+            /* use the larger one */
+            if (lheight > rheight)
+                return(lheight+1);
+            else return(rheight+1);
         }
     }
 
+    /* Print nodes at the given level */
+    void printGivenLevel (Node root ,int level)
+    {
+        if (root == null)
+            return;
+        if (level == 1)
+            System.out.print(root.data + " ");
+        else if (level > 1)
+        {
+            printGivenLevel(root.left, level-1);
+            printGivenLevel(root.right, level-1);
+        }
+    }
+
+
+    //
 }

@@ -58,18 +58,7 @@ public class _14_Tree {
 
     }
 
-    //Inorder -> call this method as root as an argument
-    private void inOrder(Node N){
-        if(N!=null){
-            inOrder(N.left);
-            System.out.print(N.data);
-            inOrder(N.right);
-        }
 
-    }
-
-    //preorde same as above -> node, left, right
-    //post order -> left,right,node
 
     //MaxMin
     public Node minNode(){
@@ -80,8 +69,5 @@ public class _14_Tree {
             tmp=tmp.left; //for Max right
         }
         return last;
-    }
-    public void delete(int id){
-
     }
 }
