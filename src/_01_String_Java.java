@@ -1,4 +1,3 @@
-package Algorithm.Hackerank;
 import java.io.*;
 import java.util.*;
 /**

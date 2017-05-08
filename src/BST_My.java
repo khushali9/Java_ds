@@ -136,7 +136,7 @@ public class BST_My {
             return N;
         }
 
-
+        return N;
     }
 
     //Check If Tree is balanced or Not
@@ -300,8 +300,7 @@ public class BST_My {
 
         /* If the tree with root as current node doesn't match then
          try left and right subtrees one by one */
-        return isSubtree(T.left, S)
-                || isSubtree(T.right, S);
+        return isSubtree(T.left, S) || isSubtree(T.right, S);
     }
 
     //Create ll of each level
@@ -336,7 +335,24 @@ public class BST_My {
         return result;
     }
 
-    ///
+    //BFS Tree
+    public void levelOrder(){
+        Queue<Node> queue=new LinkedList<Node>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Node tmp=queue.poll();
+            System.out.print(tmp.data+" ");
+
+            //enque left child
+            if(tmp.left !=null){
+                queue.add(tmp.left);
+            }
+
+            if(tmp.right !=null){
+                queue.add(tmp.right);
+            }
+        }
+    }
 
 
 }

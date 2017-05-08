@@ -1,5 +1,3 @@
-package Algorithm.Hackerank;
-
 /**
  * Created by khushali on 12/27/15.
  */
