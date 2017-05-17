@@ -7,7 +7,7 @@ public class _14_Tree {
         Node left;
         Node right;
     }
-
+   // (Here all written are for BST only)
 
     private Node root;
 
@@ -70,4 +70,6 @@ public class _14_Tree {
         }
         return last;
     }
+
+    //
 }

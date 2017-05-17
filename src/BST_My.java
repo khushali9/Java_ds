@@ -27,7 +27,6 @@ public class BST_My {
 
     public BST_My(){
         root=null;
-
     }
 
 
@@ -122,9 +121,25 @@ public class BST_My {
     //post order -> left,right,node
 
     //code ot find the succesor
+    /*
+    In Binary Tree, Inorder successor of a node is the next node in Inorder traversal of the Binary Tree. Inorder Successor is NULL for the last node in Inoorder traversal.
+In Binary Search Tree, Inorder Successor of an input node can also be defined as the node with the smallest key greater than the key of input node. So, it is sometimes important to find next node in sorted order.
+    */
+    //https://www.youtube.com/watch?v=5cPbNCrdotA&index=37&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P min 7:20 to 10 around
+
     public Node Successesor(Node N) {
         if(N==null) return null;
-        if(N.right==null) ;//This is wrong if it Null then look into the book we will need Paren
+        if(N.right==null) // will req, parent p in Tree's definations
+        {
+            /*
+            Node p = n.parent;
+        while (p != null && n == p.right) {
+            n = p;
+            p = p.parent;
+        }
+        return p;
+             */
+        }
         else
         {
             N=N.right;
@@ -162,13 +177,13 @@ public class BST_My {
     //Asc Array to Tree
     public Node addToTree(int a[],int start,int end)
     {
-        if(start<end){
+        if(end<start)
             return null;
-        }
-        else
-        {
-            int mid=(start+end)/2;
-            Node n=new Node(a[mid],addToTree(a,start,mid-1),addToTree(a,mid+1,end));
+        else{
+            int mid=(end+start)/2;
+            Node n=new Node(a[mid]);
+            n.left=addToTree(a,start,mid-1);
+            n.right=addToTree(a,mid+1,end);
             return n;
         }
     }
@@ -305,33 +320,26 @@ public class BST_My {
 
     //Create ll of each level
 
-    public ArrayList<LinkedList<Node>> findlevelLinkList(Node N){
-        ArrayList<LinkedList<Node>> result =new ArrayList<LinkedList<Node>>();
-        LinkedList<Node> list=new LinkedList<Node>();
-        int level =0;
-        list.add(N);
-        result.add(level,list);
-
-        while(true){
-            list=new LinkedList<Node>();
-            for(int i=0;i<result.get(level).size();i++){
-                Node n=result.get(level).get(i);
-                if(n!=null){
-                    if(n.left!=null)list.add(n.left);
-                    if(n.right!=null)list.add(n.right);
-
-                }
-            }
-            if(list.size()>0){
-                result.add(level+1,list);
-            }else{
-                break;
-            }
-            level++;
-
+    public ArrayList<LinkedList<Node>> findlevelLinkList(Node N) {
+        ArrayList<LinkedList<Node>> result = new ArrayList<LinkedList<Node>>();
+        LinkedList<Node> current = new LinkedList<Node>();
+        if (N != null) {
+            current.add(N);
         }
 
 
+        while (current.size() > 0) {
+            result.add(current);
+            LinkedList<Node> parent = current;
+            current = new LinkedList<Node>();
+            for (Node n : parent) {
+                if(n.left!=null)current.add(n.left);
+                if(n.right!=null)current.add(n.right);
+            }
+
+
+
+        }
         return result;
     }
 

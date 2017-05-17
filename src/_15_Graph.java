@@ -5,86 +5,39 @@ import java.util.*;
  */
 public class _15_Graph {
     int numVer;
-    int numEdge;
-    public _15_Graph(){
-        numVer=0;
-        numEdge=0;
+    LinkedList<Integer> adjList[];
+
+    public _15_Graph(int v) {
+        numVer = numVer+1;
+        adjList = new LinkedList[v];
+        for (int i = 0; i < v; ++i)
+            adjList[v]=new LinkedList();
     }
 
-    public int getNumEdges(){
-        return numEdge;
+    public void addEdge(int v, int edge) {
+        adjList[v].add(edge);
     }
 
-    public int getNumVert(){
-        return numVer;
-    }
-
-    public void addVer(){
-        //Impl add vertx
-        numVer++;
-    }
-
-}
-
-class graphAdj extends _15_Graph{
-    private int[][] adjMat;
-
-    //Adgecency matrix -> need matrix and if edge it shows 1 but when we have to add
-    //vertex then we have to increment the whole matrix size so that is bit of a work
-
-    //lets see adgecensy list
-
-    private Map<Integer,ArrayList<Integer>> adjList;
-    public void implementAddEdg(int v,int w){
-        adjMat[v][w]=1;
-    }
-
-    //with list
-    public void implAddVertex(){
-        int v=getNumVert();
-        ArrayList<Integer> ngh=new ArrayList<Integer>();
-        adjList.put(v,ngh); //if it is Map it is put Not "add"
-    }
-
-    public void implementAddEdge(int v,int w){
-        (adjList.get(v)).add(w);
-    }
-
-    public List<Integer> getNegh(int v){
-        return new ArrayList<Integer>(adjList.get(v));
-        //why new cause if we send the list we have stored in otru data then nayone can modify it so we will not return that one.
-
-    }
-    //two hop
-    public List<Integer> getNegh2(int v){
-        ArrayList<Integer> twoHop=new ArrayList<Integer>();
-        ArrayList<Integer> oneHop= adjList.get(v);
-
-                for(int i=0;i<oneHop.size();i++){
-                    twoHop.add(oneHop.get(i));
-                }
-
-        return twoHop;
-
-    }
 
     //BFS of given source int s Time Complexity: O(V+E) where V is number of vertices in the graph and E is number of edges in the graph.
-    public void BFS(int s){
-        boolean visited[]=new boolean[getNumVert()];
-        LinkedList<Integer> queue=new LinkedList<Integer>();
-        visited[s]=true;
+    public void BFS(int s) {
+        boolean visited[] = new boolean[numVer];
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+        visited[s] = true;
         queue.add(s);
 
-        while(!queue.isEmpty())
-        {
-            s=queue.poll(); //dequeue a vertex from Queue and print it
-            System.out.print(s+" ");
+        while (!queue.isEmpty()) {
+            s = queue.poll(); //dequeue a vertex from Queue and print it
+            System.out.print(s + " ");
 
-            Iterator<Integer> i=adjList.get(s).listIterator();
-            while(i.hasNext()){
-                int n=i.next();
-                if(!visited[n]){
-                   visited[n]=true;
+            Iterator<Integer> i = adjList[s].listIterator();
+            while (i.hasNext()) {
+                int n = i.next();
+                if (!visited[n]) {
+                    visited[n] = true;
+                    //for to check route between two nodes...add this lines
+                    // if(n==end) return true end is needs to be passed.else part put tfollowing lijnes
+                    visited[n] = true;
                     queue.add(n);
                 }
             }
@@ -94,27 +47,33 @@ class graphAdj extends _15_Graph{
 
     //DFS , uses stack
 
-    public void dfs(){
-        boolean visited[]=new boolean[getNumVert()];
-        for(int i=0;i<getNumVert();i++){
-            if(visited[i]==false){
-                DFSUtil(i,visited);
+    public void dfs() {
+        boolean visited[] = new boolean[numVer];
+        for (int i = 0; i <numVer; i++) {
+            if (visited[i] == false) {
+                DFSUtil(i, visited);
             }
         }
     }
 
-    public void DFSUtil(int v,boolean visited[]){
-        visited[v]=true;
-        System.out.print(v+" ");
+    public void DFSUtil(int v, boolean visited[]) {
+        visited[v] = true;
+        System.out.print(v + " ");
         // Recur for all the vertices adjacent to this vertex
-        Iterator<Integer> i=adjList.get(v).listIterator();
-        while(i.hasNext()){
-            int n=i.next();
-            if(!visited[n])
-                DFSUtil(n,visited);
+        Iterator<Integer> i = adjList[v].listIterator();
+        while (i.hasNext()) {
+            int n = i.next();
+            if (!visited[n])
+                DFSUtil(n, visited);
         }
 
     }
+
+    //Time Complexity: O(V+E) where V is number of vertices in the graph and E is number of edges in the graph.
+    //for both travarsal
+
+    //http://www.geeksforgeeks.org/applications-of-depth-first-search/
+    //http://www.geeksforgeeks.org/applications-of-breadth-first-traversal/
 
 
     //Cycle with  un directed graph
@@ -136,8 +95,8 @@ class graphAdj extends _15_Graph{
     //and if1visited code's else would be
     //// If an adjacent is visited and not parent of current
     // vertex, then there is a cycle.
-   // else if (i != parent)
-     //       return true;
+    // else if (i != parent)
+    //       return true;
 //http://www.geeksforgeeks.org/detect-cycle-undirected-graph/
 
     //is Cycle Using DisjointSet UNdirected Graph
@@ -148,5 +107,7 @@ class graphAdj extends _15_Graph{
     //http://www.geeksforgeeks.org/topological-sorting/
 
     //read http://www.geeksforgeeks.org/assign-directions-to-edges-so-that-the-directed-graph-remains-acyclic/
+
+    //topological sort
 
 }
